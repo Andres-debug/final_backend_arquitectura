@@ -1,0 +1,32 @@
+type Hospital {
+  _id: ID!
+  name: String!
+  address: String!
+  imgUrl: String
+}
+
+input CreateHospitalInput {
+ name: String!
+  address: String!
+  imgUrl: String
+}
+input UpdateHospitalInput {
+  _id: ID!
+  name: String
+  address: String
+  imgUrl: String
+}
+
+input DeleteHospitalInput {
+  _id: ID!
+}
+
+type Query {
+  hospitals: [Hospital]!
+}
+
+type Mutation {
+  createHospital(hospital: CreateHospitalInput): Hospital!
+  updateHospital(hospital: UpdateHospitalInput): Hospital!
+  deleteHospital(hospital: DeleteHospitalInput): String!
+}

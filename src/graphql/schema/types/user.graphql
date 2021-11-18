@@ -1,0 +1,54 @@
+type User {
+  _id: ID!
+  name: String!
+  password: String!
+  email: String!
+  hasActiveFee: Boolean
+  phoneNumber: String
+  rol_id: Int
+  discountCode: String
+}
+
+input CreateUserInput {
+  name: String!
+  password: String!
+  email: String!
+  hasActiveFee: Boolean
+  phoneNumber: String
+  rol_id: Int
+  discountCode: String
+}
+
+input UpdateUserInput {
+  _id: ID!
+  name: String
+  password: String
+  email: String
+  hasActiveFee: Boolean
+  phoneNumber: String
+  rol_id: Int
+  discountCode: String
+}
+
+input AuthUserInput {
+  email: String!
+  password: String!
+}
+input DeleteUserInput {
+  _id: ID!
+}
+
+type Query {
+  users: [User]!
+}
+
+type Token {
+  token: String!
+}
+
+type Mutation {
+  authUser(user: AuthUserInput): Token!
+  createUser(user: CreateUserInput): User!
+  updateUser(user: UpdateUserInput): User!
+  deleteUser(user: DeleteUserInput): String!
+}
